@@ -1,0 +1,557 @@
+\newgeometry{left=2.5cm, right=2.5cm,top=2cm, bottom=2cm}
+\appendix \section*{Annexes}
+\addcontentsline{toc}{section}{Annexes}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+\section{L'indicateur composite de stress systémique}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+\begin{sidewaysfigure}[p]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/décomposition du CISS.pdf}
+    \caption{Décomposition du CISS.}
+    \label{fig:decomposition_ciss}
+\end{sidewaysfigure}
+
+\newpage
+
+\section{Modélisation non-linéaire des sous indicateurs de stress systémique}\label{appendix:resultats}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+
+\begin{table}[H]
+    \centering
+    \caption{Test ARCH Forex.}
+    \sffamily
+    \input{annexes/arch_forex}
+    \label{tab:arch_test_forex}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Test ARCH Equity.}
+    \sffamily
+    \input{annexes/arch_equity}
+    \label{tab:arch_test_equity}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Test ARCH Imm.}
+    \sffamily
+    \input{annexes/arch_imm}
+    \label{tab:arch_test_imm}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{annexes/sous_indicateurs_stress_log.png}
+    \caption{Sous-indicateurs de stress en logarithme entre janvier 2005 et décembre 2024.}
+    \label{fig:graphindicateurslog}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{annexes/jb_logequity.pdf}
+    \caption{Test de normalité sur la série logequity.}
+    \label{fig:normalitelogequity}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{annexes/jb_logimm.pdf}
+    \caption{Test de normalité sur la série logimm.}
+    \label{fig:normalitelogimm}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{annexes/jb_logforex.pdf}
+    \caption{Test de normalité sur la série logforex.}
+    \label{fig:normalitelogforex}
+\end{figure}
+
+\subsection{Détection de la saisonnalité et de la tendance}
+
+\subsubsection*{Tests de Fischer}\label{appendix:fischer_test}
+
+\begin{table}[H]
+    \centering
+    \caption[test]{Analyse de la variance}
+    \sffamily 
+    \resizebox{\textwidth}{!}{\input{annexes/formulesanova}}
+    \label{tab:anova}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Analyse de la variance du marché actions (equity)}
+    \sffamily
+    \input{annexes/anova_equity}
+    \label{tab:anova_equity}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Analyse de la variance du marché des changes (forex)}
+    \sffamily
+    \input{annexes/anova_forex}
+    \label{tab:anova_forex}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Analyse de la variance du marché interbancaire (imm)}
+    \sffamily
+    \input{annexes/anova_imm}
+    \label{tab:anova_imm}
+\end{table}
+
+\subsubsection*{Buys-Ballot}
+
+\begin{table}[H]
+    \centering
+    \caption{Tableau de Buys-Ballot pour le marché des changes (forex)}
+    \sffamily
+    \resizebox{1\textwidth}{!}{\input{annexes/buys_ballot_forex}}
+    \label{tab:bb_forex}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Tableau de Buys-Ballot pour le marché interbancaire (imm)}
+    \sffamily
+    \resizebox{1\textwidth}{!}{\input{annexes/buys_ballot_imm}}
+    \label{tab:bb_imm}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Tableau de Buys-Ballot pour le marché actions (equity)}
+    \sffamily
+    \resizebox{1\textwidth}{!}{\input{annexes/buys_ballot_equity}}
+    \label{tab:bb_equity}
+\end{table}
+
+\subsection{Analyse de la stationnarité}
+
+\subsubsection*{Analyse du corrélogramme}\label{appendix:correlo}
+
+\begin{figure}[H]
+    \centering
+    \caption{Correlogramme du forex}
+     \resizebox{0.6\textwidth}{!}{\includegraphics{annexes/correlo_logforex.png}}
+    \label{tab:correlo_forex}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Correlogramme d'equity}
+     \resizebox{0.6\textwidth}{!}{\includegraphics{annexes/correlo_logequity.png}}
+    \label{tab:correlo_equity}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Correlogramme d'imm}
+     \resizebox{0.6\textwidth}{!}{\includegraphics{annexes/correlo_logimm.png}}
+    \label{tab:correlo_imm}
+\end{figure}
+
+\subsubsection*{Test de racine unitaire}
+
+\begin{figure}[H]
+    \centering
+    \caption{Stratégie de Dickey-Fuller}
+    \includegraphics[scale=1.2]{annexes/df_test.pdf}
+    \label{fig:strategie}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribution empirique de $\Phi_1$ pour $H_0^1$ (modèle 2).}
+    \includegraphics[scale=0.8]{annexes/dfvalues1.png}
+    \label{fig:tabledf1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribution empirique de $\Phi_2$ pour $H_0^2$ (modèle 3).}
+    \includegraphics[scale=0.8]{annexes/dfvalues2.png}
+    \label{fig:tabledf2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Distribution empirique de $\Phi_3$ pour $H_0^3$ (modèle 3).}
+    \includegraphics[scale=0.8]{annexes/dfvalues3.png}
+    \label{fig:tabledf3}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Estimation du modèle 3 du marché actions (equity).}
+    \sffamily
+    \resizebox{0.8\textwidth}{!}{\input{annexes/df_test_equity}}
+    \label{tab:modele3equity}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Estimation du modèle 3 du marché des changes (forex).}
+    \sffamily
+    \resizebox{0.8\textwidth}{!}{\input{annexes/df_test_forex}}
+    \label{tab:modele3forex}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Estimation du modèle 3 du marché interbancaire (imm).}
+    \sffamily
+    \resizebox{0.8\textwidth}{!}{\input{annexes/df_test_imm}}
+    \label{tab:modele3imm}
+\end{table}
+
+\subsection{Estimation du modèle MS-VAR}
+
+\subsubsection{Choix de la forme du modèle optimale}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle VAR(1) linéaire standard.}
+    \label{tab:modele_ms_var_lineaire}
+    \resizebox{0.8\textwidth}{!}{\input{annexes/modele_lineaire_var}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle MS-VAR.}
+    \label{tab:modele_ms_var}
+    \resizebox{0.8\textwidth}{!}{\input{tableau/ms-var}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle MSAH-VAR.}
+    \label{tab:modele_msah_var}
+    \resizebox{0.8\textwidth}{!}{\input{tableau/msah-var}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle MSH-VAR.}
+    \label{tab:modele_msh_var}
+    \resizebox{0.8\textwidth}{!}{\input{tableau/msh-var}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle MSI-VAR.}
+    \label{tab:modele_msi_var}
+    \resizebox{0.8\textwidth}{!}{\input{tableau/msi-var}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle MSIA-VAR.}
+    \label{tab:modele_msia_var}
+    \resizebox{0.8\textwidth}{!}{\input{tableau/msia-var}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle MSIAH-VAR.}
+    \label{tab:modele_msiah_var}
+    \resizebox{0.8\textwidth}{!}{\input{tableau/msiah-var}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle MSIH-VAR.}
+    \label{tab:modele_msih_var}
+    \resizebox{0.8\textwidth}{!}{\input{tableau/msih-var}}
+\end{table}
+
+\subsubsection{Sélection du nombre de retards}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle MSIH-VAR(2).}
+    \label{tab:msih_var(2)}
+    \resizebox{0.75\textwidth}{!}{\input{annexes/msih-var_2_retards}}
+\end{table}
+
+\subsubsection{Estimation}
+
+\begin{figure}[H]
+    \centering
+    \caption{Résidus du modèle MSIH-VAR.}
+    \includegraphics[scale=0.9]{annexes/msih_residuals.png}
+    \label{fig:msih_resids}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Graphique des probabilités de transitions brutes du MSIH-VAR.}
+    \includegraphics[scale=0.8]{annexes/msih_onestep.png}
+    \label{fig:graph_prob_brutes}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Graphique des probabilités de transitions lisées du MSIH-VAR.}
+    \includegraphics[scale=0.8]{annexes/msih_smoothed.png}
+    \label{fig:graph_prob_lissees}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test du portmanteau du modèle MISH-VAR.}
+    \label{tab:test_portmanteau_var)}
+    \resizebox{1\textwidth}{!}{\input{annexes/test_portmanteau_var}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test de normalité du modèle MISH-VAR.}
+    \label{tab:test_normalite_var}
+    \resizebox{1\textwidth}{!}{\input{annexes/normalite_msih-var}}
+\end{table}
+
+\subsubsection{Décomposition de la variance}
+
+\begin{figure}[H]
+    \centering
+    \caption{Histogramme de décomposition de la variance du régime 1.}
+    \includegraphics[scale=0.9]{annexes/regime_1.png}
+    \label{fig:hist_variance_r1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Histogramme de décomposition de la variance du régime 2.}
+    \includegraphics[scale=0.9]{annexes/regime_2.png}
+    \label{fig:hist_variance_r2}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Tableau de décomposition de la variance du modèle 1.}
+    \label{tab:tab_variance_r1}
+    \resizebox{1\textwidth}{!}{\input{tableau/regime_1_variance_decomposition_table}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Tableau de décomposition de la variance du modèle 2.}
+    \label{tab:tab_variance_r2}
+    \resizebox{1\textwidth}{!}{\input{tableau/regime_2_variance_decomposition_table}}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \caption{Décomposition historique du régime 2.}
+    \includegraphics[scale=1]{annexes/regime_1_historcal_decomposition.png}
+    \label{fig:msih_resids}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Décomposition historique du régime 2.}
+    \includegraphics[scale=1]{annexes/regime_2_historical_decomposition.png}
+    \label{fig:msih_resids}
+\end{figure}
+
+\subsubsection{Fonctions de réponses impulsionnelles}
+
+\begin{figure}[H]
+    \centering
+    \caption{Réponses impulsionnelles du régime 1.}
+    \includegraphics[scale=0.9]{annexes/regime_1_implusereponse.png}
+    \label{fig:impulse_reponse_r1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Réponses impulsionnelles du régime 2.}
+    \includegraphics[scale=1]{annexes/regime_2_impulsereponse.png}
+    \label{fig:impulse_reponse_r2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Réponse impulsionnelle détaillées du régime 1.}
+    \includegraphics[scale=0.65]{annexes/regime1_mutiple_reponses.png}
+    \label{fig:msih_resids}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Réponse impulsionnelle détaillées du régime 2.}
+    \includegraphics[scale=0.65]{annexes/regime2_multiples_reponses.png}
+    \label{fig:msih_resids}
+\end{figure}
+
+\subsection{Estimation du modèle NARDL}
+
+\subsubsection{Estimation du modèle NARDL sur le marché interbancaire}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle NARDL sur le LOGIMM.}
+    \label{tab:nardl_logimm}
+    \resizebox{1\textwidth}{!}{\input{annexes/nardl_logimm}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test d'existence des asymétries sur le modèle NARDL LOGIMM.}
+    \label{tab:asymetrie_nardl_logimm}
+    \resizebox{0.8\textwidth}{!}{\input{annexes/existence_asymetrie_wald_nardl_logimm}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test de multicolinéarité (VIF) sur le modèle NARDL LOGIMM.}
+    \label{tab:vif_nardl_logimm}
+    \resizebox{0.8\textwidth}{!}{\input{annexes/VIF_nardl_logimm}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test de redondance des variables asymétriques dans le modèle NARDL LOGIMM.}
+    \label{tab:redondance_nardl_logimm}
+    \resizebox{1\textwidth}{!}{\input{annexes/redondance_test_nardl_logimm}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test RESET de Ramsey dans le modèle NARDL LOGIMM.}
+    \label{tab:reset_nardl_logimm}
+    \resizebox{1\textwidth}{!}{\input{annexes/ramsey_RESET_test_nardl_logimm}}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \caption{Test de CUSUM du modèle NARDL sur le LOGIMM.}
+    \includegraphics[scale=0.9]{annexes/cusum_nardl_logimm.pdf}
+    \label{fig:msih_resids}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Test de normalité sur les résidus du modèle NARDL sur le LOGIMM.}
+    \includegraphics[scale=0.8]{annexes/normality_nardl_logimm.png}
+    \label{fig:normalite_nardl_logimm}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Test d'autorrélation sur les résidus du modèle NARDL sur le LOGIMM.}
+    \includegraphics[scale=0.8]{annexes/correlogram_nardl_logimm.png}
+    \label{fig:correlo_nardl_imm}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test ARCH sur les résidus du modèle NARDL sur le LOGIMM.}
+    \label{tab:arch_nardl_logimm}
+    \resizebox{0.8\textwidth}{!}{\input{annexes/arch_nardl_logimm}}
+\end{table}
+
+\subsubsection{Estimation du modèle NARDL sur le marché actions}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Estimation du modèle NARDL sur le LOGEQUITY.}
+    \label{tab:nardl_logequity}
+    \resizebox{0.8\textwidth}{!}{\input{annexes/nardl_logequity}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test d'existence des asymétries sur le modèle NARDL LOGEQUITY.}
+    \label{tab:asymetrie_nardl_logequity}
+    \resizebox{0.8\textwidth}{!}{\input{annexes/existence_asymetrie_nardll_logequity}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test de multicolinéarité (VIF) sur le modèle NARDL LOGEQUITY.}
+    \label{tab:vif_nardl_logequity}
+    \resizebox{0.8\textwidth}{!}{\input{annexes/VIF_nardl_logequity}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test de redondance des variables asymétriques dans le modèle NARDL LOGEQUITY.}
+    \label{tab:redondance_nardl_logequity}
+    \resizebox{1\textwidth}{!}{\input{annexes/redondance_nardl_logequity}}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test RESET de Ramsey dans le modèle NARDL LOGEQUITY.}
+    \label{tab:reset_nardl_logequity}
+    \resizebox{1\textwidth}{!}{\input{annexes/test_RESET_nard_logequity}}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \caption{Test de CUSUM du modèle NARDL sur le LOGEQUITY.}
+    \includegraphics[scale=0.9]{annexes/cusum_nardl_logequity.png}
+    \label{fig:msih_resids}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Test de normalité sur les résidus du modèle NARDL sur le LOGEQUITY.}
+    \includegraphics[scale=0.8]{annexes/normalite_nardl_logequity.pdf}
+    \label{fig:normalite_nardl_logequity}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \caption{Test d'autorrélation sur les résidus du modèle NARDL sur le LOGEQUITY.}
+    \includegraphics[scale=0.8]{annexes/autorrelation_nardl_logequity.png}
+    \label{fig:correlo_nardl_equity}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \sffamily
+    \caption{Test ARCH sur les résidus du modèle NARDL sur le LOGEQUITY.}
+    \label{tab:arch_nardl_logequity}
+    \resizebox{0.8\textwidth}{!}{\input{annexes/arch_nardl_logequity}}
+\end{table}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+
+\restoregeometry

@@ -1,0 +1,32 @@
+\begin{tabular}{lcl}
+\toprule
+\textbf{Variable} & \textbf{Coefficient} & \textbf{Prob.*} \\ % Correction : ajout de "\\" ici
+\midrule
+$LOGIMM_{t-1}$ & $0.84$ & $0.0000$ \\
+$LOGIMM_{t-2}$ & $-0.16$ & $0.0134$ \\
+$LOGIMM_{t-3}$ & $0.097$ & $0.0139$ \\
+$LOGFOREX^+$ & $0.31$ & $0.0000$ \\
+$LOGFOREX^+_{t-1}$ & $-0.22$ & $0.0000$ \\
+$LOGFOREX^-$ & $0.07$ & $0.0036$ \\
+$LOGEQUITY^+$ & $0.19$ & $0.0003$ \\
+$LOGEQUITY^+_{t-1}$ & $-0.13$ & $0.0046$ \\
+$LOGEQUITY^-$ & $0.28$ & $0.0000$ \\
+$LOGEQUITY^-_{t-1}$ & $-0.19$ & $0.0069$ \\
+$\phi_0$ & $0.16$ & $0.005$ \\
+\midrule % Correction : ligne séparatrice valide
+\textbf{$R^2$} & $0.92$ & \\
+Akaike info criterion & $-0.97$ & \\
+\midrule % Ligne séparatrice
+\textbf{Analyse des résidus} \\ % Analyse des résidus
+Homoscedasticité & Corrigé par Newey-West & annexe \ref{tab:arch_nardl_logimm} p.\pageref{tab:arch_nardl_logimm} \\
+Autocorrélation & Corrigé par Newey-West & annexe \ref{fig:correlo_nardl_imm} p.\pageref{fig:correlo_nardl_imm} \\
+Normalité & JB = 0.52 & normalité des résidus \footnotesize{(\ref{fig:normalite_nardl_logimm}}) \\
+\midrule % Ligne séparatrice
+\textbf{Tests coefficients NARDL} \\ % Analyse des résidus
+Wald-test symétrie & $\chi^2 = 35.43$ & asymétrie valide \footnotesize{(\ref{tab:asymetrie_nardl_logimm} p.\pageref{tab:asymetrie_nardl_logimm})}  \\
+Test de redondance & $F_{stat} = 29.95$ & non redondance \footnotesize{(\ref{tab:redondance_nardl_logimm} p.\pageref{tab:redondance_nardl_logimm})} \\
+Test RESET Ramsey & $F_{stat} = 0.67$ & pas de polynôme \footnotesize{(\ref{tab:reset_nardl_logimm} p.\pageref{tab:reset_nardl_logimm})}  \\
+VIF & VIF faibles & pas de colinéarité \footnotesize{(\ref{tab:vif_nardl_logimm} p.\pageref{tab:vif_nardl_logimm})} \\
+\bottomrule
+\end{tabular}
+

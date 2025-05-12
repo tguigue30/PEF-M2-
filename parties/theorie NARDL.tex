@@ -1,0 +1,151 @@
+\subsection{\textsf{Modèle autrorégressif à retards échelonnés non linéaire}}
+
+Dans ce sous-paragraphe, il est réalisé une introduction sur le modèle autorégressif à retards échelonnés non linéaire, une approche avancée pour modéliser les relations complexes entre les variables économiques. Tout d'abord, la limitation de la linéarité dans la modélisation ARDL sera examinée, mettant en évidence les défis inhérents à l'application de modèles linéaires dans des contextes où les relations sont non linéaires. Ensuite, il sera étudié la modélisation asymétrique ARDL, explorant les mécanismes par lesquels les réponses des variables peuvent différer en fonction des conditions économiques. Enfin, il sera discuté de la cointégration asymétrique et du modèle à correction d'erreur NARDL, offrant ainsi une perspective approfondie sur les méthodes avancées pour la modélisation des relations économiques dynamiques.
+
+\subsubsection{\textsf{Limite de la linéarité dans la modélisation ARDL}}
+
+La limite d'un modèle ARDL (AutoRegressive Distributed Lag) linéaire réside dans sa capacité à capturer des relations complexes entre les variables lorsque ces relations présentent des comportements non linéaires. Bien que les modèles ARDL linéaires soient utiles pour modéliser des relations de cointégration et des dynamiques à court et à long terme entre les variables, ils peuvent ne pas être adéquats pour représenter des phénomènes non linéaires tels que des seuils, des effets de seuil ou des effets asymétriques selon qu'un impact soit négatif ou positif.\\
+
+Dans de telles situations, l'introduction d'une composante non linéaire dans le modèle ARDL devient nécessaire. Cette introduction permet de mieux modéliser les relations complexes et potentiellement non linéaires entre les variables. Par exemple, les modèles ARDL non linéaires \textit{(Nolinear AutoRegressive Distributed Lags)} peuvent inclure des termes non linéaires dans les variables explicatives ou introduire des retards non linéaires pour capturer des dynamiques complexes.\\
+
+Ainsi, la nécessité d'une introduction d'un modèle NARDL dépend de la nature des données et des relations que l'on cherche à modéliser. Lorsque les relations entre les variables sont susceptibles d'être non linéaires, il peut améliorer la capacité du modèle à capturer la réalité des données et à fournir des résultats plus précis et significatifs. Cette non linéarité est bien souvent acceptée sur des données macroéconomiques et financières.\\
+
+
+\subsubsection{\textsf{La modélisation asymétrique ARDL}}
+
+Afin de faire face à ce type de problématique, \cite{Shin} ont développé le modèle NARDL en considérant une régression à long terme asymétrique\footnote{Voir annexe pour l'explication de l'estimation par le logiciel E-views~\ref{appendix:eviewsexplains}~p.\pageref{appendix:eviewsexplains}}, ce paragraphe est largement inspiré de l'article de \cite{Allen et McAleer} :
+
+\begin{equation}
+   Y_t = \beta^+ X_t^+ + \beta^- X_t^- + u_t  
+\end{equation}
+
+mais aussi que ;
+
+\begin{equation}
+    \Delta X_t = \nu_t
+\end{equation}
+
+où \( Y_t \) et \( X_t \) sont des variables scalaires I(1), et \( X_t \) est décomposé comme \( X_t = X_0 + X_t^+ + X_t^- \), où \( X_t^+ \) et \( X_t^- \) sont des processus de sommes partielles des changements positifs et négatifs dans $x_t$ alors : 
+
+\begin{equation}
+    \begin{split}
+      X_t^+ &= \sum_{j=1}^t \Delta X_j^+ = \sum_{j=1}^t \max (\Delta X_j, 0) \\
+      X_t^- &= \sum_{j=1}^t \Delta X_j^- = \sum_{j=1}^t \min (\Delta X_j, 0)
+    \end{split}
+\end{equation}
+
+Ce qui précède permet de modéliser une cointégration asymétrique avec des décompositions de sommes partielles.
+
+\cite{Schorderet} définit une combinaison linéaire stationnaire des composantes de somme partielle :
+
+\begin{equation}
+     Z_t = \beta^+_0 Y_t^+ + \beta^-_0 Y_t^- + \beta^+_1 X_t^+ + \beta^-_1 X_t^-
+     \label{yt3}
+\end{equation}
+
+Si \( Z_t \) est stationnaire, alors \( Y_t \) et \( X_t \) sont "cointégrés de manière asymétrique". La cointégration linéaire standard (symétrique) est un cas particulier de (4), obtenu uniquement si \( \beta^+_0 = \beta^-_0 \) et \( \beta^+_1 = \beta^-_1 \). \cite{Shin} considèrent le cas où la restriction suivante s'applique : \( \beta^+_0 = \beta^-_0 = \beta_0 \). Dans l'expression \eqref{yt3}, cela implique que \( \beta^+ = -\frac{\beta^+_1}{\beta_0} \) et \( \beta^- = -\frac{\beta^-_1}{\beta_0} \).
+
+\cite{Shin} utilisent ce fondement pour proposer le modèle $ARDL$ non linéaire $(p,q)$
+
+\begin{equation}
+    Y_t = \sum_{j=1}^p \varphi_j Y_{t-j} + \sum_{j=0}^q \left (\theta_j^{+'} X_{t-j}^+ +\theta_j^{-'} X_{t-j}^- \right ) +\varepsilon_t 
+\end{equation}
+
+où \( X_t \) est un vecteur de régresseurs multiples de dimension \( k \times 1 \), \( X_t = X_0 + X_t^+ + X_t^- \), \( \theta_j \) est le paramètre autorégressif, \( \theta_{i}^+ \) et \( \theta_{j}^- \) sont les paramètres de décalage asymétrique distribués, et \( \varepsilon_t \) est un processus i.i.d. \cite{Shin} considèrent que \( X_t \) est décomposé en \( X_t^+ \) et \( X_t^- \) autour de zéro, faisant la distinction entre les changements positifs et négatifs dans le taux de croissance de \( X_t \).
+
+\subsubsection{\textsf{Cointégration asymétrique et modèle à correction d'erreur NARDL}}
+
+\subsubsection*{\textsf{Test de cointégration asymétrique : \textit{NARDL Bound Testing}}}
+
+Le test de cointégration asymétrique selon l'approche de Bound développée par \cite{Pesaran et Shin} est une méthode statistique utilisée pour étudier les relations de long terme entre des variables économiques tout en prenant en compte la possibilité d'asymétries dans les ajustements vers l'équilibre.\\
+
+La modélisation NARDL étend le modèle de correction d'erreur (ECM) traditionnel en permettant des ajustements asymétriques dans les deux directions des écarts par rapport à l'équilibre. Cela signifie qu'elle peut capturer des effets asymétriques tant à court terme qu'à long terme, offrant ainsi une plus grande flexibilité pour modéliser des comportements non linéaires dans les séries temporelles.\\
+
+Le test de cointégration asymétrique consiste à effectuer un test de cointégration pour évaluer si les coefficients des termes d'erreur à court et à long terme sont significativement différents de zéro, ce qui indiquerait une cointégration asymétrique. La relation de long terme prend la forme suivante :
+
+\begin{equation}
+   Y_t = \beta^+ X_t^+ + \beta^- X_t^- + u_t  
+\end{equation}
+
+et l'aléa de long terme est ainsi, 
+
+\begin{equation}
+  u_t = Y_t - \beta^+ X_t^+ - \beta^- X_t^-   
+\end{equation}
+
+\subsubsection*{\textsf{Un modèle à correction d'erreur ECM}}
+
+Selon l'écriture du modèle asymétrique de \cite{Shin}, il est possible d'introduire selon le principe de \cite{Pesaran} un modèle à correction d'erreur en se basant sur le paragraphe précèdent :
+
+\begin{equation}
+\begin{split}
+    \Delta Y_t &= \rho Y_{t-1} + \theta^{+'} X^+_{t-1} + \theta^{-'} X_{t-1}^- + \sum_{j=1}^{p-1} \gamma_j \Delta Y_{t-j} + \sum_{j=1}^{q-1} \left ( \phi_j^{+'} \Delta X^+_{t-j} + \phi_j^{-'} \Delta X^-_{t-j} \right ) \\  
+    & = \rho \xi_{t-1} + \sum_{j=1}^{p-1} \gamma_j \Delta Y_{t-j} + \sum_{j=1}^{q-1} \left ( \phi_j^{+'} \Delta X^+_{t-j} + \phi_j^{-'} \Delta X^-_{t-j} \right )
+\end{split}
+\end{equation}
+
+où $\rho = \displaystyle{\sum_{i=1}^p} \phi_{j-1}$, $\gamma_j = -  \displaystyle{\sum_{i=j+1}^p} \phi_i$ pour tout $j = 1, ...., p-1$, $\theta^+ = \displaystyle{\sum_{j=0}^q} \theta_j^+$,  $\theta^- =  \displaystyle{\sum_{j=0}^q} \theta_j^-$, $\phi_0^{+} = \theta_0^+, \phi_j^+ = - \displaystyle{\sum_{i=j+1}^q \theta_j^+}$ pour tout $j = 1, ...., q-1$, $\phi_0^- = \theta_0^-$, $\phi^-_j = -\displaystyle{\sum_{i=j+1}^q} \theta_j^-$ pour tout $j = 1, ...., p-1$, $\xi_t = Y_t - \beta^{+'} X_t^+ - \beta^{-'} X_t^-$ est un modèle ECM non linéaire. Aussi, $\beta^+ = - \theta^+/\rho$ et $\beta^- = - \theta^-/\rho$ sont associés aux paramètres asymétriques de long terme.\\
+
+Il existe une approche asymétrique de court terme :
+
+\begin{equation}
+    \Delta Y_t = \rho Y_{t-1} + \theta X_{t-1} + \sum_{j=1}^{p-1} \gamma_j \Delta Y_{t-j} + \sum_{j=1}^{q-1} \left ( \phi_j^{+'} \Delta X^+_{t-j} + \phi_j^{-'} \Delta X^-_{t-j} \right )   
+\end{equation}
+
+L'approche asymétrique de long terme peut être elle, spécifiée de la façon suivante : 
+
+\begin{equation}
+    \Delta Y_t = \rho Y_{t-1} + \theta^{+'} X^+_{t-1} + \theta^{-'} X_{t-1}^- + \sum_{j=1}^{p-1} \gamma_j \Delta Y_{t-j} + \sum_{j=1}^{q-1} \phi_j \Delta X_{t-j}
+\end{equation}
+
+Il est également possible définir l'asymétrie de long terme de la forme : 
+
+\[
+m_h^+ = \sum_{h} \frac{\partial Y_{t+i}}{\partial X_t^+}, \quad m_h^- = \sum_{h} \frac{\partial Y_{t+i}}{\partial X_t^-}, \quad \lim_{h\to +\infty} m_h^+ = \beta^+, \quad \lim_{h\to +\infty} m_h^- = \beta^- \]
+
+Toutefois, en cas de corrélation contemporaine non nulle entre les régresseurs et les résidus dans l'équation précédente du modèle à correction d'erreur, \cite{Shin} proposent le processus de génération de données en forme réduite suivant pour $\Delta X_t$ :
+
+\begin{equation}
+  \Delta X_t = \sum_{j=1}^{q-1} \Lambda_j \Delta X_{t-j} + \nu_t  
+\end{equation}
+
+avec \( \Delta X_t \) représente le changement dans la variable \( X_t \) au temps \( t \), \( \Lambda_j \) sont les coefficients de régression, \( \Delta X_{t-j} \) sont les changements retardés dans \( X_t \), et \( \nu_t \) est le terme d'erreur. Mais aussi où \( \nu \) suit une loi de probabilité \( \text{i.i.d.}(0, \Sigma) \), avec \( \Sigma \) une matrice de covariance positive définie de dimension \( k \times k \). En ce qui concerne leur focalisation sur la modélisation conditionnelle, ils expriment \( \varepsilon_t \) en fonction de \( \nu_t \) comme suit : 
+
+\begin{equation}
+\varepsilon_t = \omega' \nu_t + e_t = \omega' \left( \Delta X_t - \sum_{j=1}^{q-1} \Lambda_j \Delta X_{t-j} \right) + e_t
+\end{equation}
+
+où \(e_t\) est le terme d'erreur non corrélé avec \( \nu_t \), par construction. En substituant les deux dernières équations, il est obtenu un modèle de correction d'erreur conditionnel non linéaire :
+
+\begin{equation}
+   \Delta Y_t = \rho \xi_{t-1} + \sum_{j=1}^{p-1} \gamma_j \Delta Y_{t-j} + \sum_{j=0}^{q-1} \left ( \pi_j^{+'} \Delta_{t-j}^+ + \pi_j^{-'} \Delta_{t-j}^- \right ) + e_t 
+\end{equation}
+
+où \( \pi_0^{+} = \theta_{0}^+ + \omega \), \( \pi^{-}_0 = \theta_0^{-} + \omega \), \( \pi_{j}^+ = \phi_{j}^+ + \omega '  \Lambda_j \), et \( \pi_{j}^- = \phi_{j}^- + \omega ' \Lambda_j \) pour \( j = 1, \ldots, q-1 \).\\
+
+\subsubsection{Extension du modèle NARDL aux changements de régimes markoviens}
+
+L'extension du modèle NARDL aux changements de régimes markoviens permet de modéliser des dynamiques économiques où les relations entre les variables peuvent évoluer selon différents régimes économiques, capturés par un processus markovien. Cette approche est particulièrement utile dans des contextes où les réponses des variables économiques sont influencées par des chocs structurels ou des périodes de crise qui modifient fondamentalement les mécanismes sous-jacents.
+
+Dans cette extension, on considère que les paramètres du modèle NARDL peuvent changer en fonction d'un état latent \( S_t \) qui suit un processus markovien à \( M \) états. Le modèle à correction d'erreur non linéaire s'écrit alors comme suit :
+
+\begin{equation}
+   \Delta Y_t = \rho(S_t) \xi_{t-1} + \sum_{j=1}^{p-1} \gamma_j(S_t) \Delta Y_{t-j} + \sum_{j=0}^{q-1} \left( \phi_j^{+'}(S_t) \Delta X_{t-j}^+ + \phi_j^{-'}(S_t) \Delta X_{t-j}^- \right) + e_t 
+\end{equation}
+
+où \( S_t \) représente le régime latent à l'instant \( t \), et \( \rho(S_t) \), \( \gamma_j(S_t) \), \( \phi_j^{+'}(S_t) \), \( \phi_j^{-'}(S_t) \) sont les paramètres du modèle qui dépendent du régime en cours. Le processus de changement de régime est décrit par une chaîne de Markov de premier ordre, avec une matrice de transition \( P \) donnée par :
+
+\[
+P = \begin{pmatrix}
+    p_{11} & p_{12} & \dots & p_{1M} \\
+    p_{21} & p_{22} & \dots & p_{2M} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    p_{M1} & p_{M2} & \dots & p_{MM}
+\end{pmatrix}
+\]
+
+où \( p_{ij} = \mathbb{P}(S_{t+1} = j | S_t = i) \) représente la probabilité de passer du régime \( i \) au régime \( j \).
+
+L'avantage principal de cette approche est la capacité à capturer des asymétries dynamiques non seulement dans les chocs positifs et négatifs (comme dans le modèle NARDL standard), mais aussi à travers des transitions entre différents régimes économiques. Chaque régime peut représenter une phase spécifique du cycle économique (par exemple, récession, expansion, crise financière), et les dynamiques de court terme et de long terme peuvent varier d'un régime à l'autre.
+
+Pour l'estimation, l'algorithme EM (Expectation-Maximization) est généralement utilisé pour obtenir des estimations maximales de vraisemblance des paramètres, conditionnellement aux régimes latents \( S_t \). Ce cadre permet de mieux comprendre comment les relations économiques évoluent en fonction de chocs structurels ou d'événements majeurs, et fournit un outil puissant pour l'analyse des séries temporelles avec changement de régime.

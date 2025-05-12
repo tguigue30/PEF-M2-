@@ -1,0 +1,208 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=red, filecolor=magenta, pdfborder={0 0 0}]{hyperref}
+\usepackage[lf]{mathpazo}
+\usepackage{mathtools}
+\usepackage{babel}
+\usepackage{graphicx} 
+\usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{tabularx,booktabs,caption,ragged2e}
+\usepackage{eurosym}
+\usepackage{amsmath , amsfonts, amssymb}
+\usepackage{amsthm}
+\usepackage{pdfpages}
+\usepackage{adjustbox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes, arrows.meta}
+\usepackage{cite}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{bbm}
+\usepackage{colortbl} 
+\usepackage{shorttoc}
+\usepackage{etoc}
+\usepackage{tocloft} 
+\usepackage{eso-pic}
+\usepackage{rotating}
+\setlength{\parindent}{0pt}
+\setlength{\headheight}{14.61858pt}
+\captionsetup{skip=0.333\baselineskip}
+\usepackage{geometry}
+
+\def\frenchcontentsname{Sommaire}
+\geometry{a4paper,textwidth=480pt}
+
+\renewcommand{\contentsname}{Table des matières}
+\renewcommand{\refname}{Bibliographie}
+\renewcommand{\tablename}{Tableau}
+\renewcommand{\tableautorefname}{Tableau}
+\renewcommand{\listtablename}{Liste des tableaux}
+\renewcommand{\listfigurename}{Liste des figures}
+
+\definecolor{darkgreen}{RGB}{0,100,0} % Définit une couleur vert foncé
+
+\titleformat{\section}[display]
+{\flushright\normalsize\huge\color{black}}%
+{\flushright\normalsize%
+{\fontsize{100}{100}\selectfont% Taille agrandie
+\hspace*{-1em}%
+\colorbox{red}{\textcolor{white}{\textbf{\thesection}}}}}%
+{10pt}%
+{\addfontfeature{}\huge\scshape}
+
+\titleformat{\subsection}[block] % Utilisation du style "block" pour tout aligner sur la même ligne
+{\bfseries\normalsize\color{black}}% Style général (gras et couleur noire)
+{
+\fontsize{20}{20}\selectfont%
+\colorbox{blue}{\textcolor{white}{\textbf{\thesubsection}}}% Numéro avec fond bleu et texte blanc
+}%
+{1em}% Espacement entre le numéro et le texte
+{\bfseries\large} % Style du texte de la sous-section (en gras et plus grand)
+
+\titleformat{\subsubsection}[block] % Utilisation du style "block" pour tout aligner sur la même ligne
+{\bfseries\normalsize\color{black}}% Style général (gras et couleur noire)
+{
+\fontsize{10}{10}\selectfont%
+\colorbox{darkgreen}{\textcolor{white}{\textbf{\thesubsubsection}}}% Numéro avec fond bleu et texte blanc
+}%
+{1em}% Espacement entre le numéro et le texte
+{\bfseries\large} % Style du texte de la sous-section (en gras et plus grand)
+
+% Commande pour définir l'image d'arrière-plan
+\newcommand\BackgroundPicBackPage{%
+    \put(0,0){%
+        \parbox[b][\paperheight]{\paperwidth}{%
+            \includegraphics[width=\paperwidth,height=\paperheight]{Back-Page-BG.pdf}%
+        }
+    }
+}
+
+\begin{document}
+
+% Couleurs
+\definecolor{darkshade}{HTML}{2E517A} 
+\definecolor{ogshade}{HTML}{446180}  
+\definecolor{font}{HTML}{E0E3C2} 
+
+% Page de titre
+\begin{titlepage}
+    % Ajouter l'image de fond
+    \AddToShipoutPictureBG*{%
+        \includegraphics[width=\paperwidth,height=\paperheight]{Cover-BG.pdf}%
+    }
+
+    % Logos en haut
+    \noindent 
+    \makebox[\textwidth][c]{ 
+    \includegraphics[scale=1]{figures/um3.png}
+    \hspace{8em} 
+    \includegraphics[scale=0.23]{figures/eco.png}
+    }
+    \vfill
+    \centering
+    % Nom de l'université et de la faculté
+    \textcolor{font}{\Large \textsf{Université de Montpellier}}\par\vspace{0.2cm}
+    \textcolor{font}{\Large \textsf{Faculté d'économie}}
+    \vfill
+    % Titre principal
+    \textcolor{font}{\fontsize{70}{48} \selectfont \bfseries Projet d'économétrie financière}\par\vspace{0.4cm}
+    % Sous-titre / Description
+    \textcolor{font}{\Large \textsf{Modélisation non-linéaire multivariée et univariée des sous-indicateurs de stress systémique du marché interbancaire, du marché des changes et du marché actions sur données mensuelles de 2005 à 2023. Entre effets de régimes et effets asymétriques.}}
+    \vfill 
+    % Superviseur
+    \begin{center}
+    \textcolor{font}{\Large \textsf{Sous la direction de Françoise Seyte}}  
+    \end{center}
+    \vfill
+    % Auteurs
+    \textcolor{font}{\Large \textsf{Théo Guigue et Élodie Gayraud}}
+    \vfill
+    % Mention du Master et finalisation
+    \textcolor{font}{\textsf{Master 2 Analyse des Risques Bancaires}}\par\vspace{0.2cm}
+    \textcolor{font}{\textsf{Année universitaire 2024-2025}}\par % Ajout de l'année académique pour compléter
+    \vspace{1cm} % Ajustement pour harmoniser l'espace
+\end{titlepage}
+
+
+\newpage
+
+  % Ajouter l'image de fond
+    \AddToShipoutPictureBG*{%
+        \includegraphics[width=\paperwidth,height=\paperheight]{Front-Page-BG.pdf}%
+    }
+
+\newpage
+
+\pagestyle{plain}
+
+\vspace*{0.2\textheight}
+
+\noindent \enquote{\itshape "Le problème central de la prévention des dépressions économiques a été résolu, en pratique, pour de nombreuses décennies."}\bigbreak
+
+\hfill Robert Lucas (prix Nobel d'économie 1995), \textit{Discours présidentiel à l'American Economic Association}, 2003.
+
+\newpage
+
+% Inclusion des sections
+\input{parties/remerciements}
+
+\newpage
+\input{parties/resume}
+
+\newpage
+
+% Sommaire réduit (limité aux sections seulement)
+\shorttoc{Sommaire}{1}\addcontentsline{toc}{section}{Sommaire}
+
+\newpage
+
+% Sections principales
+\input{parties/introduction}
+\newpage
+\input{parties/theorie economique}
+\newpage
+\input{parties/theorie econometrique}
+\newpage
+\input{parties/résultats}
+\newpage
+\input{parties/conclusion}
+\newpage
+\input{parties/annexe}
+
+% Listes des figures et tables
+\newpage
+
+\addcontentsline{toc}{section}{Liste des figures}
+\listoffigures
+
+\newpage
+
+\addcontentsline{toc}{section}{Liste des tables}
+\listoftables
+
+\newpage
+
+\addcontentsline{toc}{section}{Bibliographie}
+\include{parties/bibliographie}
+
+% Table des matières complète à la fin
+\clearpage
+\etocsetnexttocdepth{3} % Inclut les sous-sections
+\etocarticlestyle
+\addcontentsline{toc}{section}{Table des matières}
+\tableofcontents
+
+\newpage
+    % Page avec l'arrière-plan
+    \AddToShipoutPictureBG*{\BackgroundPicBackPage}
+    \thispagestyle{empty}
+    % Ajoutez votre contenu ici si nécessaire
+    \null % Placeholder si aucun contenu n'est nécessaire
+\end{document}
+
